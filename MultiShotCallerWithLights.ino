@@ -160,16 +160,15 @@ void startupAnimation(){
 void deadAnimation(){
   // When dead don't leave this conditional
   if (currentHitPoints <= 0) {
-    // flash and beep
-    setLEDs("red", 0, NUM_LEDS, NULL);
-    beep(HIT_ALERT_TIME_MS*2);
-    
-    // clear and silence for 300ms
-    clearLeds();
-    delay(HIT_ALERT_TIME_MS*2);
-
-    // Don't read any other values since we are dead
-    return;
+    while(true){
+      // flash and beep
+      setLEDs("red", 0, NUM_LEDS, NULL);
+      beep(HIT_ALERT_TIME_MS*2);
+      
+      // clear and silence for 300ms
+      clearLeds();
+      delay(HIT_ALERT_TIME_MS*2);
+    }
   }  
 }
 
